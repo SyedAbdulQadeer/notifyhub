@@ -1,21 +1,59 @@
 {
   "name": "firebase_notification_handler",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
-    "test-helper": "node test-helper.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development node server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "serve": "node server.js",
+    "test-helper": "node examples/test-helper.js",
+    "test-basic": "node examples/basic-usage.js",
+    "test-batch": "node examples/batch-notifications.js",
+    "test-server": "node examples/http-server.js",
+    "examples": "npm run test-helper",
+    "test": "npm run test-helper",
+    "lint": "echo \"Linting not configured\" && exit 0",
+    "build": "echo \"No build step required\" && exit 0",
+    "vercel-build": "echo \"No build step required for Vercel deployment\" && exit 0"
   },
-  "keywords": ["firebase", "fcm", "notifications", "relay", "stateless"],
-  "author": "AlwariDev",
+  "keywords": ["firebase", "fcm", "notifications", "relay", "stateless", "alwaridev", "encryption", "aes", "secure"],
+  "author": "Syed Abdul Qadeer <contact@alwaridev.com> (https://github.com/SyedAbdulQadeer)",
   "license": "ISC",
-  "description": "Stateless Firebase Cloud Messaging relay service with AES encryption support",
+  "description": "Stateless Firebase Cloud Messaging relay service with AES encryption support - Developed by AlwariDev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SyedAbdulQadeer/firebase-notification-handler.git"
+  },
+  "homepage": "https://github.com/SyedAbdulQadeer/firebase-notification-handler#readme",
+  "bugs": {
+    "url": "https://github.com/SyedAbdulQadeer/firebase-notification-handler/issues"
+  },
   "dependencies": {
-    "firebase-admin": "^12.0.0"
+    "firebase-admin": "^12.0.0",
+    "dotenv": "^16.0.0"
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "server.js",
+    "src/",
+    "examples/",
+    "README.md",
+    ".env.example"
+  ],
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.js"
+    },
+    "./server": {
+      "require": "./server.js",
+      "import": "./server.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "type": "commonjs"
 }

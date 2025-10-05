@@ -1,15 +1,35 @@
 {
     "version": 2,
+    "name": "firebase-notification-handler",
     "builds": [
         {
             "src": "server.js",
-            "use": "@vercel/node"
+            "use": "@vercel/node",
+            "config": {
+                "maxLambdaSize": "50mb"
+            }
         }
     ],
     "routes": [
         {
+            "src": "/health",
+            "dest": "server.js"
+        },
+        {
+            "src": "/sendNotification",
+            "dest": "server.js"
+        },
+        {
             "src": "/(.*)",
             "dest": "server.js"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    },
+    "functions": {
+        "server.js": {
+            "maxDuration": 30
+        }
+    }
 }
