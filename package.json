@@ -1,0 +1,21 @@
+{
+  "name": "firebase_notification_handler",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test-helper": "node test-helper.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["firebase", "fcm", "notifications", "relay", "stateless"],
+  "author": "AlwariDev",
+  "license": "ISC",
+  "description": "Stateless Firebase Cloud Messaging relay service with AES encryption support",
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
